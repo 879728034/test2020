@@ -26,6 +26,14 @@
       aihao: <b v-for="(item, index) in message.aihao" :key="index">{{item}}--</b><br>
       <button @click="changeAihao">修改爱好</button>
     </span>
+    <hr>
+    <div>
+      这里是过滤器后的图片地址效果：<br>
+      原地址：{{imageurl}}<br>
+      过滤后：{{imageurl | imageUrl}} <br>
+      加域名：{{imageurl | imageUrl | httpImgUrl}} <br>
+      <img :src="imageurl | imageUrl | httpImgUrl" alt="">
+    </div>
   </div>
 </template>
 <script>
@@ -60,7 +68,8 @@ export default {
         name: 'luo',
         id: 3,
         aihao: ['游泳','羽毛球','足球']
-      }
+      },
+      imageurl: '/file/group-tours/2018-03-30/5f4e494a79a81d6804e1e37cdee02493.jpg'
     };
   },
   methods: {
